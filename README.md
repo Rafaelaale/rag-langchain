@@ -14,3 +14,4 @@ Como executar:
 O indice fica na pasta local indice/ e nao vai para o Git.
 
 
+
