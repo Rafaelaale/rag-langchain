@@ -1,4 +1,4 @@
-# RAG com LangChain
+﻿# RAG com LangChain
 
 Agente que consulta regras de futebol com LangChain, FAISS e Ollama. Os modelos rodam localmente.
 
@@ -12,3 +12,4 @@ Como executar:
 6. python .\aulas\05_agente_futebol.py
 
 O indice fica na pasta local indice/ e nao vai para o Git.
+
