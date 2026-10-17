@@ -12,7 +12,7 @@ ARQUIVO_REGRAS = PASTA_PROJETO / "documentos" / "regras_futebol.txt"
 PASTA_INDICE = PASTA_PROJETO / "indice" / "regras_futebol"
 
 MODELO_EMBEDDING = "nomic-embed-text:latest"
-MODELO_LLM = "llama3.2:1b"
+MODELO_LLM = "gemma3:1b"
 
 
 def parar(modelo):
@@ -41,7 +41,8 @@ def obter_indice():
 
 
 def responder(indice, pergunta, modelo):
-    contexto = indice.similarity_search(pergunta, k=1)[0].page_content[:500]
+    documentos = indice.similarity_search(pergunta, k=3)
+    contexto = "\n\n".join(doc.page_content[:400] for doc in documentos)
     parar(MODELO_EMBEDDING)
 
     prompt = (
@@ -61,9 +62,9 @@ def main():
     indice = obter_indice()
     modelo = OllamaLLM(
         model=MODELO_LLM,
-        num_ctx=256,
+        num_ctx=1024,
         num_gpu=0,
-        num_predict=60,
+        num_predict=80,
     )
     for pergunta in [
         "Um jogador pode usar a mao para marcar um gol?",
