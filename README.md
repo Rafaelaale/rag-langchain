@@ -1,17 +1,21 @@
-﻿# RAG com LangChain
+﻿# Arquiteturas RAG com LLMs
 
-Agente que consulta regras de futebol com LangChain, FAISS e Ollama. Os modelos rodam localmente.
+Estudos de RAG com LangChain: embeddings, busca semantica e agentes.
 
-Como executar:
+Stack: Python, LangChain, Chroma e Ollama (`nomic-embed-text` para embeddings e `gemma3:1b` para respostas). A versao local nao usa credito da OpenAI.
 
-1. python -m venv .venv
-2. .\.venv\Scripts\Activate.ps1
-3. pip install langchain langchain-ollama langchain-community langchain-text-splitters faiss-cpu
-4. ollama pull nomic-embed-text
-5. ollama pull gemma3:1b
-6. python .\\projetos\\agente-futebol\\agente_futebol.py
+- Embeddings e busca semantica
+- Agente farmaceutico com PDFs sinteticos, nao bulas oficiais
+- Agente de RH com politicas ficticias
+- Chat de regras de futebol com texto didatico, nao regulamento oficial
 
-O indice fica na pasta local indice/ e nao vai para o Git.
+## Como rodar
 
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+ollama serve
+python aulas\projeto_04_regras_futebol_local.py
+```
 
-
+Os indices Chroma sao gerados na execucao e nao ficam no Git.

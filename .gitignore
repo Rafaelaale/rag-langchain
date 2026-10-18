@@ -1,11 +1,9 @@
 ﻿.venv/
 __pycache__/
+*.py[cod]
 .env
-.env.*
-*.pkl
-.ipynb_checkpoints/
-indice/
-
-chroma_*/
+chroma_bulas_local/
+chroma_rh_local/
+chroma_futebol_local/
 .agents/
 .claude/
